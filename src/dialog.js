@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
 
 class Dialog extends Component {
-    constructor() {
-        super();
-        this.state = {
-            quote: [],
-            api: [],
-        }
-    }
+    // constructor() {
+    //     super();
+    //     this.state = {
+    //         quote: [],
+    //         api: [],
+    //     }
+    // }
 
-    componentDidMount(){
+    // componentDidMount(){
         
-    }
+    // }
 
-    componentDidUpdate(){
+    // componentDidUpdate(){
 
         
         //this pushes api to the stateapilist, but because using componentDidUpdate, api pushes 
         
 
-        let apiList = [];
+        // let apiList = [];
        
 
         // if (this.props.askedQuestion.length > 0) {
@@ -55,16 +55,16 @@ class Dialog extends Component {
 
         // apiList.push(getApiQuote(i.api))
 
-        if (this.props.askedQuestion.length > 0) {
-            this.props.askedQuestion.forEach((i) => {
-               apiList.push(i.trumpTalk)
-            })
-        }
+        // if (this.props.askedQuestion.length > 0) {
+        //     this.props.askedQuestion.forEach((i) => {
+        //        apiList.push(i.trumpTalk)
+        //     })
+        // }
 
-        if (apiList.length !== this.state.api.length) {
-            this.setState({ api: apiList })
-            console.log(apiList)
-        }
+        // if (apiList.length !== this.state.api.length) {
+        //     this.setState({ api: apiList })
+        //     console.log(apiList)
+        // }
 
         // if (this.state.api.length > 0) {
         //     this.state.api.map((i) => {
@@ -85,7 +85,7 @@ class Dialog extends Component {
 
 
 
-    }
+    // }
 
 
 

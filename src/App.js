@@ -4,7 +4,10 @@ import axios from 'axios';
 import Dialog from './dialog';
 import './App.css';
 import Ask from './ask';
-import Result from './result'
+import Result from './result';
+import Status from './status';
+import NewsValue from './newsValue';
+import Intro from './intro'
 
 
 
@@ -19,10 +22,11 @@ class App extends Component {
       question1: '',
       question2: '',
       question3: '',
-      display: true,
-      quoteList: [],
       interest: 5,
-      newsValue: 0
+      interestChange: 0,
+      newsValue: 0,
+      questionDisplay: true,
+      resultDisplay: false
     }
   }
 
@@ -52,13 +56,17 @@ class App extends Component {
       this.setState({ questionList: shuffledList });
       console.log(this.state.questionList)
 
+      this.apiToText();
+
       this.questionDisplay();
       // console.log(this.state.question3)
 
     })
 
 
+
     
+
     // axios({
     //   url: 'http://proxy.hackeryou.com',
     //   dataType: 'json',
@@ -98,28 +106,28 @@ class App extends Component {
   //   }
   // }
 
-    // !!!cannot force re-render after api call's been made, the trumptalk display always renders before the api call, trumptalk can only display correctly after another question button being clicked
+    // (solved) cannot force re-render after api call's been made, the trumptalk display always renders before the api call, trumptalk can only display correctly after another question button being clicked
     
 
-    if (this.state.askedQuestion.length > 0){
-      this.state.askedQuestion.forEach(
-        (i) => {
-          if(i.api !==0){
-              axios({
-                url: 'http://proxy.hackeryou.com',
-                dataType: 'json',
-                method: 'GET',
-                params: {
-                  reqUrl: 'https://api.tronalddump.io/tag/' + i.api,
-                  xmlToJSON: false
-                }
-              }).then(function (res) {
-                i.trumpTalk = res.data._embedded.tags[0].value;
-              })
-          }
-        }
-      )
-    }
+    // if (this.state.askedQuestion.length > 0){
+    //   this.state.askedQuestion.forEach(
+    //     (i) => {
+    //       if(i.api !==0){
+    //           axios({
+    //             url: 'http://proxy.hackeryou.com',
+    //             dataType: 'json',
+    //             method: 'GET',
+    //             params: {
+    //               reqUrl: 'https://api.tronalddump.io/tag/' + i.api,
+    //               xmlToJSON: false
+    //             }
+    //           }).then(function (res) {
+    //             i.trumpTalk = res.data._embedded.tags[0].value;
+    //           })
+    //       }
+    //     }
+    //   )
+    // }
 
 }
 
@@ -152,6 +160,36 @@ class App extends Component {
   //   console.log(this.state.questionList)
   // }
 
+  apiToText = () => {
+    this.state.questionList.forEach(
+      (i) => {
+        if (i.api !== 0) {
+          axios({
+            url: 'http://proxy.hackeryou.com',
+            dataType: 'json',
+            method: 'GET',
+            params: {
+              reqUrl: 'https://api.tronalddump.io/tag/' + i.api,
+              xmlToJSON: false
+            }
+          }).then(function (res) {
+            i.trumpTalk = res.data._embedded.tags[0].value;
+          })
+        }
+      }
+    )
+  }
+
+  displayOrNot = () => {
+    if (this.state.round === 5 || this.state.interest <= 0) {
+      this.setState({
+        questionDisplay: false,
+        resultDisplay: true
+      });
+      console.log('downdowndown')
+    }
+  }
+
   questionDisplay = () => {
     this.setState({ question1: this.state.questionList[this.state.round * 3], question2: this.state.questionList[this.state.round * 3 + 1], question3: this.state.questionList[this.state.round * 3 + 2]})
   }
@@ -165,15 +203,34 @@ class App extends Component {
 
   updateAskedHandler = (q) => {
     this.setState({ askedQuestion: [...this.state.askedQuestion, q] }, () => {
-      console.log(this.state.askedQuestion)
+      // console.log(this.state.askedQuestion)
     });
   }
 
-  updateQuoteHandler = (q) => {
-    this.setState({ quoteList: [...this.state.quoteList, q] }, () => {
-      console.log(this.state.quoteList)
+  updateInterestHandler = (i) => {
+    this.setState({ interest: this.state.interest + i }, () => {
+      if (this.state.interest < 0) {
+        this.setState({ interest: 0 })
+      }
+      this.displayOrNot();
+      console.log('interest'+this.state.interest)
     });
   }
+
+  interestChangeHandler = (ic) => {
+    this.setState({ interestChange: ic });
+  }
+
+  newsValueHandler = (n) => {
+    this.setState({ newsValue: this.state.newsValue + n }, () => {
+      console.log('newsvalue'+this.state.newsValue)
+    });
+  }
+
+  resultDisplayHandler = (r) => {
+    this.setState({ resultDisplay: r });
+  }
+
 
   // stopInterview = () => {
   //   if (this.state.round === 1) {
@@ -186,15 +243,22 @@ class App extends Component {
   // display the question in dialog section \/
   // get api response refer to the askedquestion \/
   // display the api quote on the page \/
-  // change state.interest value refer to the askedquestion
-  // change newsValue value refer to the askedquestion
+  // change state.interest value refer to the askedquestion \/
+  // change newsValue value refer to the askedquestion \/
+  // update firebase json file \/
+  // show trump reaction meme on status bar \/
+  // show result panel after question hidden, show news value & trump interest \/
+  // display an intro
 
   render() {
     return (
       <div className="App">
-        <Dialog askedQuestion={this.state.askedQuestion} quoteList={this.state.quoteList} handler={this.updateQuoteHandler}/>
-        <Ask q1={this.state.question1} q2={this.state.question2} q3={this.state.question3} handler={this.updateAskedHandler} selected={this.questionSelected} round={this.state.round} displayOrNot={this.displayOrNot}/>
-        <Result />
+        <Intro />
+        <Status interest={this.state.interest} interestChange={this.state.interestChange}/>
+        <Dialog askedQuestion={this.state.askedQuestion}/>
+        <NewsValue newsValue={this.state.newsValue}/>
+        <Ask q1={this.state.question1} q2={this.state.question2} q3={this.state.question3} handler={this.updateAskedHandler} interestHandler={this.updateInterestHandler} interestChangeHandler={this.interestChangeHandler} newsValueHandler={this.newsValueHandler} interest={this.state.interest} selected={this.questionSelected} round={this.state.round} resultDisplayHandler={this.resultDisplayHandler} questionDisplay={this.state.questionDisplay}/>
+        <Result resultDisplay={this.state.resultDisplay} newsValue={this.state.newsValue} interest={this.state.interest}/>
         {/* <button onClick={this.questionSelected}>Question A {this.state.question1.question}</button>
         <button onClick={this.questionSelected}>Question B {this.state.question2.question}</button>
         <button onClick={this.questionSelected}>Question C {this.state.question3.question}</button> */}

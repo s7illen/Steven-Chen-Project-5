@@ -15,13 +15,23 @@ class Ask extends Component {
             display: true
         }
     }
-
+    
 // !cannot make the setChoice DRY due to fail to grab the value on the button
 
-    displayOrNot = () => {
-        if (this.props.round === 5) {
-            this.setState({ display: false });
-        }
+    // displayOrNot = () => {
+    //     if (this.props.round === 5 || this.props.interest <= 0 ) {
+    //         this.setState({ 
+    //             display: false
+    //         });
+    //         this.props.resultDisplayHandler(true);
+    //     }
+    // }
+
+    hander = () => {
+        this.props.handler(this.state.userChoice)
+        this.props.interestHandler(this.state.userChoice.interest);
+        this.props.newsValueHandler(this.state.userChoice.newsValue);
+        this.props.interestChangeHandler(this.state.userChoice.interest);
     }
 
     setChoice1 = () => {
@@ -29,9 +39,8 @@ class Ask extends Component {
         this.setState ({
             userChoice: this.props.q1
         }, () => {
-            this.props.handler(this.state.userChoice);
-            this.displayOrNot()
-        })
+            this.hander()
+        });
     }
 
     setChoice2 = () => {
@@ -39,8 +48,7 @@ class Ask extends Component {
         this.setState({
             userChoice: this.props.q2
         }, () => {
-            this.props.handler(this.state.userChoice)
-            this.displayOrNot()
+            this.hander()
         });
     }
 
@@ -49,15 +57,14 @@ class Ask extends Component {
         this.setState({
             userChoice: this.props.q3
         }, () => {
-            this.props.handler(this.state.userChoice)
-            this.displayOrNot()
+            this.hander()
         });
     }
 
 
     render(){
         return (
-            <div className={this.state.display ? '' : 'hidden'}>
+            <div className={this.props.questionDisplay ? '' : 'hidden'}>
                 <button onClick={this.setChoice1}>Question A {this.props.q1.question}</button>
                 <button onClick={this.setChoice2}>Question B {this.props.q2.question}</button>
                 <button onClick={this.setChoice3}>Question C {this.props.q3.question}</button>
