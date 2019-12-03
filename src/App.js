@@ -165,7 +165,7 @@ class App extends Component {
       (i) => {
         if (i.api !== 0) {
           axios({
-            url: 'http://proxy.hackeryou.com',
+            url: 'https://proxy.hackeryou.com',
             dataType: 'json',
             method: 'GET',
             params: {
