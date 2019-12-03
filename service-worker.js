@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Steven-Chen-Project-5/precache-manifest.567b3f61c9c696cbd05590fe235e0dd9.js"
+  "/Steven-Chen-Project-5/precache-manifest.7addf01bae31dd034edef8867956cc3a.js"
 );
 
 self.addEventListener('message', (event) => {
