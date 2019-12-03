@@ -51,6 +51,17 @@
     }
 }
 
+@media (max-width: 500px) {
+    .introContent{
+        .trumpFigure {
+            display:none;
+        }
+        .introText {
+            width: 80%;
+        }
+    }
+}
+
 
 
 

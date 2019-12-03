@@ -43,11 +43,18 @@
 @media (max-width: 500px) {
     .status {
         .wrapper {
+            min-width: 0px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             .trumvatar {
                 height: 100px;
                 width: 100px;
                 border: 3px outset $orange;
                 margin: 0 5px;
+            }
+            .interest {
+                width: 80%;
             }
         }
     }
