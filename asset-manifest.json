@@ -1,28 +1,34 @@
 {
   "files": {
-    "main.css": "/Steven-Chen-Project-5/static/css/main.69ade959.chunk.css",
-    "main.js": "/Steven-Chen-Project-5/static/js/main.9eef59a6.chunk.js",
-    "main.js.map": "/Steven-Chen-Project-5/static/js/main.9eef59a6.chunk.js.map",
+    "main.css": "/Steven-Chen-Project-5/static/css/main.55fe808e.chunk.css",
+    "main.js": "/Steven-Chen-Project-5/static/js/main.c118a12b.chunk.js",
+    "main.js.map": "/Steven-Chen-Project-5/static/js/main.c118a12b.chunk.js.map",
     "runtime-main.js": "/Steven-Chen-Project-5/static/js/runtime-main.e6102963.js",
     "runtime-main.js.map": "/Steven-Chen-Project-5/static/js/runtime-main.e6102963.js.map",
-    "static/js/2.e9c4368f.chunk.js": "/Steven-Chen-Project-5/static/js/2.e9c4368f.chunk.js",
-    "static/js/2.e9c4368f.chunk.js.map": "/Steven-Chen-Project-5/static/js/2.e9c4368f.chunk.js.map",
+    "static/js/2.f725ea8d.chunk.js": "/Steven-Chen-Project-5/static/js/2.f725ea8d.chunk.js",
+    "static/js/2.f725ea8d.chunk.js.map": "/Steven-Chen-Project-5/static/js/2.f725ea8d.chunk.js.map",
     "index.html": "/Steven-Chen-Project-5/index.html",
-    "precache-manifest.b799dfd5a735c4a8d0724e03e0452a3f.js": "/Steven-Chen-Project-5/precache-manifest.b799dfd5a735c4a8d0724e03e0452a3f.js",
+    "precache-manifest.ee9bb8e95814cf785aa2cc11733d140c.js": "/Steven-Chen-Project-5/precache-manifest.ee9bb8e95814cf785aa2cc11733d140c.js",
     "service-worker.js": "/Steven-Chen-Project-5/service-worker.js",
-    "static/css/main.69ade959.chunk.css.map": "/Steven-Chen-Project-5/static/css/main.69ade959.chunk.css.map",
+    "static/css/main.55fe808e.chunk.css.map": "/Steven-Chen-Project-5/static/css/main.55fe808e.chunk.css.map",
+    "static/media/boss.jpg": "/Steven-Chen-Project-5/static/media/boss.9c0a39b6.jpg",
+    "static/media/App.scss": "/Steven-Chen-Project-5/static/media/whitehouse.8a012a08.jpg",
+    "static/media/reporterimg.png": "/Steven-Chen-Project-5/static/media/reporterimg.3bcd0c5a.png",
+    "static/media/trump-body.png": "/Steven-Chen-Project-5/static/media/trump-body.ac1c0f54.png",
+    "static/media/trump-head.png": "/Steven-Chen-Project-5/static/media/trump-head.a31f24db.png",
     "static/media/trump0.gif": "/Steven-Chen-Project-5/static/media/trump0.b7139b39.gif",
+    "static/media/trumpDefault.png": "/Steven-Chen-Project-5/static/media/trumpDefault.5edb7909.png",
     "static/media/trumpMinus1.gif": "/Steven-Chen-Project-5/static/media/trumpMinus1.a3bd8ef1.gif",
     "static/media/trumpMinus2.gif": "/Steven-Chen-Project-5/static/media/trumpMinus2.eb211291.gif",
-    "static/media/trumpMinus3.gif": "/Steven-Chen-Project-5/static/media/trumpMinus3.a970309f.gif",
+    "static/media/trumpMinus3.gif": "/Steven-Chen-Project-5/static/media/trumpMinus3.486cf56e.gif",
     "static/media/trumpPlus1.gif": "/Steven-Chen-Project-5/static/media/trumpPlus1.ff1fb72d.gif",
-    "static/media/trumpPlus2.gif": "/Steven-Chen-Project-5/static/media/trumpPlus2.15630967.gif",
+    "static/media/trumpPlus2.gif": "/Steven-Chen-Project-5/static/media/trumpPlus2.35e95cec.gif",
     "static/media/trumpPlus3.gif": "/Steven-Chen-Project-5/static/media/trumpPlus3.3215cfc3.gif"
   },
   "entrypoints": [
     "static/js/runtime-main.e6102963.js",
-    "static/js/2.e9c4368f.chunk.js",
-    "static/css/main.69ade959.chunk.css",
-    "static/js/main.9eef59a6.chunk.js"
+    "static/js/2.f725ea8d.chunk.js",
+    "static/css/main.55fe808e.chunk.css",
+    "static/js/main.c118a12b.chunk.js"
   ]
 }
