@@ -7,7 +7,7 @@ const NewsValue = (props) => {
     let level = newsValue*8;
 
         return(
-            <div>
+            <div className={'wrapper newsValue'}>
                 <h3>News Value</h3>
                 <div className="meter">
                     <span style={{width: JSON.stringify(level)+"%"}}></span>

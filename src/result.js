@@ -1,4 +1,6 @@
 import React from 'react';
+import boss from './image/boss.jpg';
+import trump from './image/trumpDefault.png';
 
 const Result = (props) => {
 
@@ -8,13 +10,13 @@ const Result = (props) => {
 
     let bossResult = '';
 
-    if (interest === 0) {trumpResult = `Never ever enter my white house again! LEAVE! you FAKE media!`}
+    if (interest === 0) {trumpResult = `Never ever enter my white house again! LEAVE! You FAKE media!`}
     else if (interest < 3) { trumpResult = `You are the enemy of the people, I will not invite you again` }
     else if (interest < 4) { trumpResult = `I don't like your reporting, it's kinda fake` }
     else if (interest < 5) { trumpResult = `Can you leave now? I need to go golfing right away` }
     else if (interest < 7) { trumpResult = `I like your questions, but I like my FOX news friends better` }
     else if (interest < 9) { trumpResult = `Such a great time, let me put your reporting on my twitter` }
-    else if (interest < 10) { trumpResult = `We both are stable genius! Here is my number, call me maybe` }
+    else if (interest >= 9) { trumpResult = `We both are stable genius! Here is my number, call me maybe` }
     
 
     if (newsValue > 10) { bossResult = `Such a bombshell! Amazing Interview! I'm giving you a raise!`} 
@@ -29,12 +31,21 @@ const Result = (props) => {
 
     return (
         <div className={resultDisplay ? '' : 'hidden'}>
-            <h2>Great Interview</h2>
-            <div className="trumpResult">
-                {trumpResult}
-            </div>
-            <div className="bossResult">
-                {bossResult}
+            <div className={'result'}>
+                <div className={'wrapper resultContainer'}>
+                    <div className={"trumpResult"}>
+                    <div className={'trumpResultImg'}>
+                        <img className={'trump'} src={trump} alt="Trump Image"></img>
+                    </div>
+                        <p className={'resultText'}>Trump: {trumpResult}</p>
+                    </div>
+                    <div className={"bossResult"}>
+                    <div className={'bossResultImg'}>
+                        <img className={'boss'} src={boss} alt="Your Boss"></img>
+                    </div>
+                        <p className={'resultText'}>Your Boss: {bossResult}</p>
+                    </div>
+                </div>
             </div>
         </div>
     )

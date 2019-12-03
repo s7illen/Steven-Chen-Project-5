@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import firebase from './firebase';
 import axios from 'axios';
 import Dialog from './dialog';
-import './App.css';
+import './App.scss';
 import Ask from './ask';
 import Result from './result';
 import Status from './status';
 import NewsValue from './newsValue';
-import Intro from './intro'
+import Intro from './intro';
 
 
 

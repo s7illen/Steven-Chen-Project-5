@@ -1,0 +1,24 @@
+@import './style/setup';
+@import './style/global';
+@import './style/bar';
+@import './style/intro';
+@import './style/figure';
+@import './style/status';
+@import './style/dialog';
+@import './style/newsValue';
+@import './style/ask';
+@import './style/result';
+@import url('https://fonts.googleapis.com/css?family=Enriqueta|Kalam|Merienda+Onei&display=swap');
+
+.App {
+  background-image: url('./image/whitehouse.jpg');
+  background-size: cover;
+  height: 100vh;
+  background-position: center;
+}
+
+@media (max-width: 800px) {
+    .App {
+        height: auto;
+    }
+}

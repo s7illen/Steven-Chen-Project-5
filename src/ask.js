@@ -65,9 +65,11 @@ class Ask extends Component {
     render(){
         return (
             <div className={this.props.questionDisplay ? '' : 'hidden'}>
-                <button onClick={this.setChoice1}>Question A {this.props.q1.question}</button>
-                <button onClick={this.setChoice2}>Question B {this.props.q2.question}</button>
-                <button onClick={this.setChoice3}>Question C {this.props.q3.question}</button>
+                <div className={'wrapper ask'}>
+                <button className={'askButton'} onClick={this.setChoice1}>{this.props.q1.question}</button>
+                <button className={'askButton'} onClick={this.setChoice2}>{this.props.q2.question}</button>
+                <button className={'askButton'} onClick={this.setChoice3}>{this.props.q3.question}</button>
+                </div>
             </div>
         )
     }

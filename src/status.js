@@ -11,7 +11,7 @@ const Status = (props) => {
 
     const {interest, interestChange} = props;
 
-    let level = interest*10;
+    let level = interest*8;
 
     let trumpSrc = trump0;
 
@@ -33,14 +33,19 @@ const Status = (props) => {
 
 
         return(
-            <div>
-                <h2>President of United State</h2>
-                <h3>interest</h3>
-                <img src={trumpSrc} alt="Trump is laughing"></img>
-                <div className="meter">
-                    <span style={{width: JSON.stringify(level)+"%"}}></span>
+            <div className={'status'}>
+                <div className={'wrapper'}>
+                    <img className={'trumvatar'} src={trumpSrc} alt="Donald J. Trump Avatar"></img>
+                    <div className={'interest'}>
+                    <h2>President of United State</h2>
+                    <div className={'interestBar'}>
+                        <h3>interest</h3>
+                        <div className="meter">
+                            <span style={{width: JSON.stringify(level)+"%"}}></span>
+                        </div>
+                    </div>
+                    </div>
                 </div>
-
             </div>
         )
 }

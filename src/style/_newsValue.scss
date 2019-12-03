@@ -1,0 +1,13 @@
+.newsValue {
+    // background-color: rgba(255, 255, 255, 0.8);
+    @include flexer;
+    padding: 10px;
+    h3 {
+        @include text-1;
+        min-width: 130px;
+        color: $chat;
+        text-align: right;
+        padding-right: 10px;
+        text-transform: uppercase;
+    }
+}

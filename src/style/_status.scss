@@ -1,0 +1,55 @@
+.status {
+    width: 100%;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.8);
+    .wrapper{
+        min-width: 400px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 5px 2%;
+        .trumvatar {
+            height: 150px;
+            width: 150px;
+            border-radius: 50%;
+            border: 6px outset $orange;
+            object-fit: cover;
+            margin: 0 20px;
+        }
+        .interest {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            h2 {
+                @include heading-2;
+                color: $back;
+                text-align: left;
+                padding: 3px 0;
+             }
+            .interestBar{
+                @include flexer;
+                justify-content:flex-start;
+                h3 {
+                    @include text-1;
+                    text-transform: uppercase;
+                    color: $back;
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .status {
+        .wrapper {
+            .trumvatar {
+                height: 100px;
+                width: 100px;
+                border: 3px outset $orange;
+                margin: 0 5px;
+            }
+        }
+    }
+
+}

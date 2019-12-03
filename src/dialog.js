@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import reporterimg from './image/reporterimg.png';
 
 class Dialog extends Component {
     // constructor() {
@@ -98,14 +99,20 @@ class Dialog extends Component {
 
     render(){
         return(
-            <div>
-                <h2>DIALOG</h2>
-                {this.props.askedQuestion.map((i) => {
-                    return (<p>{i.question}</p>)
-                })}
-                {this.props.askedQuestion.map((i) => {
-                    return (<p>{i.trumpTalk}</p>)
-                })}
+            <div className={'wrapper'}>
+                <div className={'chatGrid'}>
+                    <div className={'leftDialog'}>
+                    {this.props.askedQuestion.map((i) => {
+                        return (<div className={'leftChat'}><p>{i.trumpTalk}</p></div>)
+                        })}
+                    </div>
+
+
+                    <div className={'rightDialog'}>{this.props.askedQuestion.map((i) => {
+                        return (<div className={'rightChat'}><p className={'reporterQ'}>{i.question}</p><img className={'reporterimg'} src={reporterimg} alt="User Avatar"></img></div>)
+                        })}
+                    </div>
+                </div>
             </div>
         )
     }

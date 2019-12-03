@@ -1,0 +1,57 @@
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+
+
+.intro {
+    z-index: 1;
+    height: 100vh;
+    background-image: url('../image/intro_back.png');
+    background-color: $diamond;
+    background-size: cover;
+    position: absolute;
+    @include flexer;
+    .toggleFont {
+        font-size: 3rem;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: $back;
+        opacity: 0.5;
+    }
+    .toggleFont:hover {
+        transition: width linear 0.2s, height linear 0.2s;
+        font-size: 4rem;
+        color: $red;
+        opacity: 1;
+    }
+
+}
+
+.introContent {
+    @include flexer;
+    justify-content: space-around;
+    .trumpFigure {
+        width: 20%;
+        @include flexer;
+    }
+    .introText {
+        width: 80%;
+        h1 {
+            @include heading-1;
+            color: $orange;
+            text-shadow: 2px 2px rgb(203, 81, 81);
+            margin: 20px 0;
+        }
+        p {
+            @include text-1;
+        }
+    }
+}
+
+
+
+
+
