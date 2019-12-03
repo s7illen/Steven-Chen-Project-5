@@ -19,7 +19,7 @@
         color: $back;
         opacity: 0.5;
     }
-    .toggleFont:hover {
+    .toggleFont:hover, .toggleFont:focus {
         transition: width linear 0.2s, height linear 0.2s;
         font-size: 4rem;
         color: $red;

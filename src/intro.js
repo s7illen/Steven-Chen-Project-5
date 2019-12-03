@@ -19,7 +19,7 @@ class Intro extends Component{
         return (
             <div className={this.state.hidden ? 'hidden nitro' : 'nitro'}>
                 <div className={'intro'}>
-                    <div className={'closeToggle'} onClick={this.hideIt}>                       <FontAwesomeIcon className={'toggleFont'} icon={faTimesCircle}/>
+                    <div className={'closeToggle'} onClick={this.hideIt}>           <FontAwesomeIcon className={'toggleFont'} icon={faTimesCircle} aria-label={'Close the intro'} aria-required="true"/>
                     </div>
                     <div className={'wrapper introContent'}>
                         <div className={'trumpFigure'}>
