@@ -11,9 +11,9 @@
         background: $diamond;
         border: 3px outset yellow;
         box-shadow: 0px 6px $back;
-    cursor: pointer;
+        cursor: pointer;
     }
-    .askButton:hover {
+    .askButton:hover, .askButton:focus {
         transform: translateY(6px);
         transition: transform 0.7s;
     }

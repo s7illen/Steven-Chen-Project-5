@@ -8,11 +8,8 @@ import trumpMinus2 from './image/trumpMinus2.gif';
 import trumpMinus3 from './image/trumpMinus3.gif';
 
 const Status = (props) => {
-
     const {interest, interestChange} = props;
-
     let level = interest*8;
-
     let trumpSrc = trump0;
 
     if (interestChange === 0) {
@@ -30,24 +27,23 @@ const Status = (props) => {
     } else {
         trumpSrc = trumpPlus3
     }
-
-
-        return(
-            <div className={'status'}>
-                <div className={'wrapper'}>
-                    <img className={'trumvatar'} src={trumpSrc} alt="Donald J. Trump Avatar"></img>
-                    <div className={'interest'}>
-                    <h2>President of United State</h2>
-                    <div className={'interestBar'}>
-                        <h3>interest</h3>
-                        <div className="meter">
-                            <span style={{width: JSON.stringify(level)+"%"}}></span>
-                        </div>
-                    </div>
+    
+    return(
+        <div className={'status'}>
+            <div className={'wrapper'}>
+                <img className={'trumvatar'} src={trumpSrc} alt="Donald J. Trump Avatar"></img>
+                <div className={'interest'}>
+                <h2>President of United State</h2>
+                <div className={'interestBar'}>
+                    <h3>interest</h3>
+                    <div className="meter">
+                        <span style={{width: JSON.stringify(level)+"%"}}></span>
                     </div>
                 </div>
+                </div>
             </div>
-        )
+        </div>
+    )
 }
 
 export default Status;

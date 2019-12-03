@@ -1,11 +1,8 @@
 import React from 'react';
 
 const NewsValue = (props) => {
-
     const {newsValue} = props;
-
     let level = newsValue*8;
-
         return(
             <div className={'wrapper newsValue'}>
                 <h3>News Value</h3>

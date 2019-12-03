@@ -9,8 +9,6 @@ import Status from './status';
 import NewsValue from './newsValue';
 import Intro from './intro';
 
-
-
 class App extends Component {
   constructor() {
     super();
@@ -30,23 +28,11 @@ class App extends Component {
     }
   }
 
-  //create a function that pick a question randomly from question list(state), save it as a var, also remove it from the question list(state)
-
   componentDidMount() {
-
     const dbRef = firebase.database().ref();
     dbRef.on('value', (response) => {
-      // console.log(response.val().choice[0].question);
       const whateverList = response.val().choice;
-
-      // console.log(whateverList);
-
       this.setState({allQuestions: whateverList});
-
-      console.log(this.state.allQuestions);
-
-      // console.log(this.state.allQuestions.choice.id0.question);
-
       const shuffledList = [];
       for (let i = 0; i < 18; i++) {
         const x = Math.floor(Math.random() * this.state.allQuestions.length);
@@ -54,111 +40,10 @@ class App extends Component {
         this.state.allQuestions.splice(x, 1);
       }
       this.setState({ questionList: shuffledList });
-      console.log(this.state.questionList)
-
       this.apiToText();
-
       this.questionDisplay();
-      // console.log(this.state.question3)
-
     })
-
-
-
-    
-
-    // axios({
-    //   url: 'http://proxy.hackeryou.com',
-    //   dataType: 'json',
-    //   method: 'GET',
-    //   params: {
-    //     reqUrl: 'https://api.tronalddump.io/tag/Hillary%20Clinton',
-    //     xmlToJSON: false
-    //   }
-    // }).then(function (res) {
-    //   const dog = res.data._embedded.tags[0].value;
-    //   console.log(dog)
-    // });
-
   }
-
-  componentDidUpdate() {
-
-  //   if (this.state.askedQuestion.length > 0) {
-  //       this.state.askedQuestion.forEach( (i) => {
-  //         if(i.api !== 0){
-            
-            // () => {
-            //   axios({
-            //     url: 'http://proxy.hackeryou.com',
-            //     dataType: 'json',
-            //     method: 'GET',
-            //     params: {
-            //       reqUrl: 'https://api.tronalddump.io/tag/' + i.api,
-            //       xmlToJSON: false
-            //     }
-            //   }).then(function (res) {
-            //     i.interest = res.data._embedded.tags[0].value
-            //   });
-  //       // }
-        
-  //     }
-  //   }
-  // }
-
-    // (solved) cannot force re-render after api call's been made, the trumptalk display always renders before the api call, trumptalk can only display correctly after another question button being clicked
-    
-
-    // if (this.state.askedQuestion.length > 0){
-    //   this.state.askedQuestion.forEach(
-    //     (i) => {
-    //       if(i.api !==0){
-    //           axios({
-    //             url: 'http://proxy.hackeryou.com',
-    //             dataType: 'json',
-    //             method: 'GET',
-    //             params: {
-    //               reqUrl: 'https://api.tronalddump.io/tag/' + i.api,
-    //               xmlToJSON: false
-    //             }
-    //           }).then(function (res) {
-    //             i.trumpTalk = res.data._embedded.tags[0].value;
-    //           })
-    //       }
-    //     }
-    //   )
-    // }
-
-}
-
- 
-
-  // displayOrNot = () => {
-  //   if (this.state.round === 1) {
-  //     this.setState({ display: false },()=>{
-  //       console.log(this.state.display)
-  //     });
-  //   }
-  // }
-
-
-
-  // randomQuestion = () => {
-  //   // const random = Math.floor(Math.random() * this.state.allQuestions.length);
-  //   // const first = this.state.allQuestions[random];
-  //   // const shuffled = this.state.allQuestions.sort(() => 0.5 - Math.random());
-  //   // let shuffledList = shuffled.slice(0, 8);
-  //   //push it to the questionList array
-  //   // remove this question from the allQuestions
-  //   const shuffledList = [];
-  //   for (let i = 0; i < 3; i++) {
-  //     const x = Math.floor(Math.random() * this.state.allQuestions.length);
-  //     shuffledList.push(this.state.allQuestions[x]);
-  //     this.state.allQuestions.splice(x, 1);
-  //   }
-  //   this.setState({questionList: shuffledList});
-  //   console.log(this.state.questionList)
-  // }
 
   apiToText = () => {
     this.state.questionList.forEach(
@@ -186,7 +71,6 @@ class App extends Component {
         questionDisplay: false,
         resultDisplay: true
       });
-      console.log('downdowndown')
     }
   }
 
@@ -197,14 +81,11 @@ class App extends Component {
   questionSelected = () => {
     this.setState({ round: this.state.round + 1 },() =>{
     this.questionDisplay();
-    console.log('current round:', this.state.round)
     });
   }
 
   updateAskedHandler = (q) => {
-    this.setState({ askedQuestion: [...this.state.askedQuestion, q] }, () => {
-      // console.log(this.state.askedQuestion)
-    });
+    this.setState({ askedQuestion: [...this.state.askedQuestion, q] }) 
   }
 
   updateInterestHandler = (i) => {
@@ -213,7 +94,6 @@ class App extends Component {
         this.setState({ interest: 0 })
       }
       this.displayOrNot();
-      console.log('interest'+this.state.interest)
     });
   }
 
@@ -222,33 +102,12 @@ class App extends Component {
   }
 
   newsValueHandler = (n) => {
-    this.setState({ newsValue: this.state.newsValue + n }, () => {
-      console.log('newsvalue'+this.state.newsValue)
-    });
+    this.setState({ newsValue: this.state.newsValue + n })
   }
 
   resultDisplayHandler = (r) => {
     this.setState({ resultDisplay: r });
   }
-
-
-  // stopInterview = () => {
-  //   if (this.state.round === 1) {
-  //     console.log('555')
-  //   }
-  // }
-
-  // this.state.askedQuestion.push(q) \/
-  // when user selected a question, save it into asked question array \/
-  // display the question in dialog section \/
-  // get api response refer to the askedquestion \/
-  // display the api quote on the page \/
-  // change state.interest value refer to the askedquestion \/
-  // change newsValue value refer to the askedquestion \/
-  // update firebase json file \/
-  // show trump reaction meme on status bar \/
-  // show result panel after question hidden, show news value & trump interest \/
-  // display an intro
 
   render() {
     return (
@@ -259,9 +118,6 @@ class App extends Component {
         <NewsValue newsValue={this.state.newsValue}/>
         <Ask q1={this.state.question1} q2={this.state.question2} q3={this.state.question3} handler={this.updateAskedHandler} interestHandler={this.updateInterestHandler} interestChangeHandler={this.interestChangeHandler} newsValueHandler={this.newsValueHandler} interest={this.state.interest} selected={this.questionSelected} round={this.state.round} resultDisplayHandler={this.resultDisplayHandler} questionDisplay={this.state.questionDisplay}/>
         <Result resultDisplay={this.state.resultDisplay} newsValue={this.state.newsValue} interest={this.state.interest}/>
-        {/* <button onClick={this.questionSelected}>Question A {this.state.question1.question}</button>
-        <button onClick={this.questionSelected}>Question B {this.state.question2.question}</button>
-        <button onClick={this.questionSelected}>Question C {this.state.question3.question}</button> */}
       </div>
     );
   }
